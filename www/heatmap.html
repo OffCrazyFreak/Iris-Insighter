@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="revisit-after" content="10 days" />
+
+    <meta name="author" content="Jakov Jakovac" />
+    <meta name="copyright" content="Jakov Jakovac" />
+
+    <meta
+      name="description"
+      content="Simple gaze tracker using webgazer.js"
+    />
+    <meta
+      name="keywords"
+      content="gaze tracking, computer vision, regression, II, Iris Insighter"
+    />
+
+    <meta property="og:image" content="img/logos/Main Logo-02.png" />
+    <meta
+      property="og:description"
+      content="Simple gaze tracker using webgazer.js"
+    />
+    <meta property="og:title" content="Iris Insighter" />
+
+
+    <link rel="icon" href="favicon.ico" />
+
+    <title>Iris Insighter</title>
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/fonts.css">
+
+
+  <style>
+    /* Make sure everything in body can go to the edge of the page */
+    /* Particularly, Chrome's default styles have an 8px margin for the body */
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    /* Make body take up entire page */
+    body, #content {
+      width: 100vw;
+      height: 100vh;
+    }
+    /* Make the image autoscale to the page */
+    #content {
+      object-fit: contain;
+    }
+    /* Put the heatmap on top of the image */
+    #heatmapContainer {
+      /* The heatmap will set its own size to the window's via JS */
+      z-index: 10;
+      position: fixed !important;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+	<header class="navigation">
+	<nav>
+		<ul class="nav_list">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="calibration.html">Calibration</a></li>
+			<li><a href="collision.html">Demo game</a></li>
+			<!-- <li><a class="current_site" href="heatmap.html">Heatmap</a></li> -->
+		</ul>
+		</nav>
+	</header>
+
+  <img id="content" src="media/example/starrynight.jpg" />
+  <div id="heatmapContainer"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.8.1/localforage.js"></script>
+  <script src="./webgazer.js"></script>
+  <script src="./node_modules/heatmap.js/build/heatmap.min.js"></script>
+  <script src="js/heatmap-demo.js"></script>
+</body>

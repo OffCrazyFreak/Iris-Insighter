@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Simply Rounded Regular";
+    src: url("../fonts/Simply Rounded.woff2") format("woff2"),
+      url("../fonts/Simply Rounded.woff") format("woff");
+    font-style: normal;
+    font-weight: normal;
+}
+  
+@font-face {
+    font-family: "Simply Rounded Bold";
+    src: url("../fonts/Simply Rounded Bold.woff2") format("woff2"),
+        url("../fonts/Simply Rounded Bold.woff") format("woff");
+    font-style: normal;
+    font-weight: normal;
+}
