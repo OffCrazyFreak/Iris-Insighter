@@ -48,7 +48,9 @@
           <li><a class="current_site" href="collision.html">Demo</a></li>
           <!-- <li><a href="heatmap.html">Heatmap</a></li> -->
 
-          <!-- <button class="btn btn-primary" onclick="helpModalShow()">Help</button> -->
+          <button class="btn btn-primary" onclick="helpModalShow()">
+            Help
+          </button>
         </ul>
       </nav>
     </header>
@@ -59,12 +61,20 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-body">
-            <img
-              src="media/example/collision.png"
-              width="100%"
-              height="100%"
-              alt="webgazer demo instructions"
-            />
+            <ul>
+              <li>
+                Keep your eyes in the middle of rectangle for best prediciton
+                (rectangle will turn green)
+              </li>
+              <li>The software recongnizes your face and eyes</li>
+              <li>Green dot is your gaze</li>
+              <li>
+                Calibrate the model by clicking anywhere on screen while looking
+                at your cursor (the more clicks and different parts of screen,
+                the better the prediction)
+              </li>
+              <li>Try to separate the balls with your gaze only</li>
+            </ul>
           </div>
           <div class="modal-footer">
             <button
