@@ -1,24 +1,37 @@
 body {
-    min-width:600px!important;
+  min-width: 600px !important;
 }
 
 /* Video Feed Styling */
 #overlay {
-/* Video Feed Styling:
+  /* Video Feed Styling:
  * Include the !important keyword to override default styles applied by JS.
  * webgazer.js sets defaults for: display, position, top, left, width, height
  */
 }
+
 #webgazerVideoContainer {
-    display: block !important; 
-    position: fixed !important;
-    top: 0px !important;
-    left: 0px !important;
-    width: 320px !important;
-    height: 240px !important;
-    z-index: 1;
+  display: block !important;
+  position: fixed !important;
+  top: 0px !important;
+  left: 0px !important;
+  width: 320px !important;
+  height: 240px !important;
+  z-index: 1;
 }
 
 .modal-header {
-    border-bottom: none!important;
+  border-bottom: none !important;
+}
+
+#webgazerGazeDot {
+  margin-top: calc(4rem + clamp(1.125rem, 4vw, 2rem));
+
+  background: limegreen !important;
+}
+
+#webgazerGazeDot {
+  margin-top: calc(4rem + clamp(1.125rem, 4vw, 2rem));
+
+  background: limegreen;
 }

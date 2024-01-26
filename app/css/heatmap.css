@@ -1,0 +1,25 @@
+/* Make sure everything in body can go to the edge of the page */
+/* Particularly, Chrome's default styles have an 8px margin for the body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+/* Make body take up entire page */
+body,
+#content {
+  width: 100vw;
+  height: 100vh;
+}
+/* Make the image autoscale to the page */
+#content {
+  object-fit: contain;
+}
+/* Put the heatmap on top of the image */
+#heatmapContainer {
+  /* The heatmap will set its own size to the window's via JS */
+  z-index: 10;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+}

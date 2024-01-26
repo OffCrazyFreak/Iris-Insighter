@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<head>
-	<meta charset="UTF-8" />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="revisit-after" content="10 days" />
@@ -8,10 +9,7 @@
     <meta name="author" content="Jakov Jakovac" />
     <meta name="copyright" content="Jakov Jakovac" />
 
-    <meta
-      name="description"
-      content="Simple gaze tracker using webgazer.js"
-    />
+    <meta name="description" content="Simple gaze tracker using webgazer.js" />
     <meta
       name="keywords"
       content="gaze tracking, computer vision, regression, II, Iris Insighter"
@@ -24,82 +22,97 @@
     />
     <meta property="og:title" content="Iris Insighter" />
 
-
     <link rel="icon" href="favicon.ico" />
 
     <title>Iris Insighter</title>
 
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/nav.css">
-	<link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
 
-	<link rel="stylesheet" href="css/calibration.css">
+    <link rel="stylesheet" href="css/calibration.css" />
 
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <!-- <script src="./tensorflow.js"></script> -->
-  <script src="./webgazer.js"></script>
-</head>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- <script src="./tensorflow.js"></script> -->
+    <script src="./webgazer.js"></script>
+  </head>
 
-<body>
-	<header class="navigation">
-	<nav>
-		<ul class="nav_list">
-			<li><a href="index.html">Home</a></li>
-			<li><a class="current_site" href="calibration.html">Calibration</a></li>
-			<li><a href="collision.html">Demo</a></li>
-			<!-- <li><a href="heatmap.html">Heatmap</a></li> -->
+  <body>
+    <header class="navigation">
+      <nav>
+        <ul class="nav_list">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a class="current_site" href="calibration.html">Calibration</a>
+          </li>
+          <li><a href="collision.html">Demo</a></li>
+          <!-- <li><a href="heatmap.html">Heatmap</a></li> -->
 
-      <button class="btn btn-primary" onclick="Restart()">Recalibrate</button>
-      <button class="btn btn-primary" onclick="calcAccuracy()">Test accuracy</button>
-      <!-- <button class="btn btn-primary" onclick="helpModalShow()">Help</button> -->
-		</ul>
-		</nav>
-	</header>
-  
-      <canvas id="plotting_canvas" style="cursor:crosshair;"></canvas>
+          <button class="btn btn-primary" onclick="Restart()">
+            Recalibrate
+          </button>
+          <button class="btn btn-primary" onclick="calcAccuracy()">
+            Test accuracy
+          </button>
+          <!-- <button class="btn btn-primary" onclick="helpModalShow()">Help</button> -->
+        </ul>
+      </nav>
+    </header>
 
-      <script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <canvas id="plotting_canvas" style="cursor: crosshair"></canvas>
 
-      <script src="./js/main.js"></script>
-      <script src="./js/calibration.js"></script>
-      <script src="./js/precision_calculation.js"></script>
-      <script src="./js/precision_store_points.js"></script>
+    <script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
-      
-      <!-- Calibration points -->
-      <div class="calibrationDiv" style="display: none;">
-          <input type="button" class="calibration_point" id="Pt1"></input>
-          <input type="button" class="calibration_point" id="Pt2"></input>
-          <input type="button" class="calibration_point" id="Pt3"></input>
-          <input type="button" class="calibration_point" id="Pt4"></input>
-          <input type="button" class="calibration_point" id="Pt5"></input>
-          <input type="button" class="calibration_point" id="Pt6"></input>
-          <input type="button" class="calibration_point" id="Pt7"></input>
-          <input type="button" class="calibration_point" id="Pt8"></input>
-          <input type="button" class="calibration_point" id="Pt9"></input>
-      </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/calibration.js"></script>
+    <script src="./js/precision_calculation.js"></script>
+    <script src="./js/precision_store_points.js"></script>
 
-      <!-- Modal -->
-      <div id="helpModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+    <!-- Calibration points -->
+    <div class="calibrationDiv" style="display: none">
+      <input type="button" class="calibration_point" id="Pt1" />
+      <input type="button" class="calibration_point" id="Pt2" />
+      <input type="button" class="calibration_point" id="Pt3" />
+      <input type="button" class="calibration_point" id="Pt4" />
+      <input type="button" class="calibration_point" id="Pt5" />
+      <input type="button" class="calibration_point" id="Pt6" />
+      <input type="button" class="calibration_point" id="Pt7" />
+      <input type="button" class="calibration_point" id="Pt8" />
+      <input type="button" class="calibration_point" id="Pt9" />
+    </div>
 
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-body">
-              <img src="media/example/calibration.png" width="100%" height="100%" alt="webgazer demo instructions"></img>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-            </div>
+    <!-- Modal -->
+    <div id="helpModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            <img
+              src="media/example/calibration.png"
+              width="100%"
+              height="100%"
+              alt="webgazer demo instructions"
+            />
           </div>
-
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
         </div>
       </div>
+    </div>
 
-      <!-- Latest compiled JavaScript -->
-      <script src="./js/resize_canvas.js"></script>
-      <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    </body>
+    <!-- Latest compiled JavaScript -->
+    <script src="./js/resize_canvas.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

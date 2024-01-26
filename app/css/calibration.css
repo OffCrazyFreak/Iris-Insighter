@@ -1,59 +1,57 @@
-
-.calibration_point{
-    width: 20px;
-    height: 20px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    border: none;
-    background-color: royalblue;
-    opacity: 1;
-    position:fixed;
+.calibration_point {
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  border: none;
+  background-color: royalblue;
+  opacity: 1;
+  position: fixed;
 }
 
-
-.calibration_point:disabled{
-    background-color: limegreen;
+.calibration_point:disabled {
+  background-color: limegreen;
 }
 
 /* Calibration point position */
-#Pt1{
-    /* top: 70px; */
-    margin-top:2vw;
-    left:340px;
+#Pt1 {
+  /* top: 70px; */
+  margin-top: 2vw;
+  left: 340px;
 }
-#Pt2{
-    /* top: 70px; */
-    margin-top:2vw;
-    left:50vw;
-    margin-left: 340;
+#Pt2 {
+  /* top: 70px; */
+  margin-top: 2vw;
+  left: 50vw;
+  margin-left: 340;
 }
-#Pt3{
-    /* top: 70px; */
-    margin-top:2vw;
-    right:2vw;
+#Pt3 {
+  /* top: 70px; */
+  margin-top: 2vw;
+  right: 2vw;
 }
-#Pt4{
-    top:50dvh;
-    left:2vw;
+#Pt4 {
+  top: 50dvh;
+  left: 2vw;
 }
-#Pt5{
-    top: 50dvh;
-    left: 50vw;
+#Pt5 {
+  top: 50dvh;
+  left: 50vw;
 }
-#Pt6{
-    top: 50dvh;
-    right:2vw;
+#Pt6 {
+  top: 50dvh;
+  right: 2vw;
 }
-#Pt7{
-    bottom:2vw;
-    left: 2vw;
+#Pt7 {
+  bottom: 2vw;
+  left: 2vw;
 }
-#Pt8{
-    bottom:2vw;
-    left:50vw;
+#Pt8 {
+  bottom: 2vw;
+  left: 50vw;
 }
-#Pt9{
-    bottom:2vw;
-    right:2vw;
+#Pt9 {
+  bottom: 2vw;
+  right: 2vw;
 }
