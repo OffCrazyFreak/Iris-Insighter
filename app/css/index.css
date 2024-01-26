@@ -19,9 +19,9 @@
     text-shadow: 2px 2px 10px black;
   
     font-size: min(10vw, 8rem);
-  }
+}
 
-  .app_desc{
-    font-size: min(4vw, 6rem);
+.app_desc{
+  font-size: min(4vw, 6rem);
 
-  }
+}

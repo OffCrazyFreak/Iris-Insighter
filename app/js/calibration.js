@@ -1,14 +1,12 @@
 var PointCalibrate = 0;
 var CalibrationPoints={};
 
-// Find the help modal
-var helpModal;
 
 /**
  * Clear the canvas and the calibration button.
  */
 function ClearCanvas(){
-  document.querySelectorAll('.Calibration').forEach((i) => {
+  document.querySelectorAll('.calibration_point').forEach((i) => {
     i.style.setProperty('display', 'none');
   });
   var canvas = document.getElementById("plotting_canvas");
@@ -32,17 +30,19 @@ function PopUpInstruction(){
   });
 
 }
-/**
-  * Show the help instructions right at the start.
-  */
-function helpModalShow() {
-    if(!helpModal) {
-        helpModal = new bootstrap.Modal(document.getElementById('helpModal'))
-    }
-    helpModal.show();
-}
 
 function calcAccuracy() {
+    // grab every element in Calibration class and hide them except the middle point.
+    document.querySelectorAll('.calibration_point').forEach((i) => {
+        i.style.setProperty('display', 'none');
+    });
+    document.getElementById('Pt5').style.display = "block";
+
+    // clears the canvas
+    var canvas = document.getElementById("plotting_canvas");
+    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+
+
     // show modal
     // notification for the measurement process
     swal({
@@ -60,13 +60,10 @@ function calcAccuracy() {
                 stop_storing_points_variable(); // stop storing the prediction points
                 var past50 = webgazer.getStoredPoints(); // retrieve the stored points
                 var precision_measurement = calculatePrecision(past50);
-                var accuracyLabel = "<a>Accuracy | "+precision_measurement+"%</a>";
-                document.getElementById("Accuracy").innerHTML = accuracyLabel; // Show the accuracy in the nav bar.
                 swal({
                     title: "Your accuracy measure is " + precision_measurement + "%",
                     allowOutsideClick: false,
                     buttons: {
-                        cancel: "Recalibrate",
                         confirm: true,
                     }
                 }).then(isConfirm => {
@@ -75,7 +72,7 @@ function calcAccuracy() {
                             ClearCanvas();
                         } else {
                             //use restart function to restart the calibration
-                            document.getElementById("Accuracy").innerHTML = "<a>Not yet Calibrated</a>";
+                            // document.getElementById("Accuracy").innerHTML = "<a>Not yet Calibrated</a>";
                             webgazer.clearData();
                             ClearCalibration();
                             ClearCanvas();
@@ -90,17 +87,18 @@ function calPointClick(node) {
     const id = node.id;
 
     if (!CalibrationPoints[id]){ // initialises if not done
-        CalibrationPoints[id]=0;
+        CalibrationPoints[id]=5;
     }
-    CalibrationPoints[id]++; // increments values
+    CalibrationPoints[id]--; // increments values
 
-    if (CalibrationPoints[id]==5){ //only turn to yellow after 5 clicks
-        node.style.setProperty('background-color', 'yellow');
-        node.setAttribute('disabled', 'disabled');
+    if (CalibrationPoints[id]==0){ //only turn to green after 5 clicks
+        // node.style.setProperty('background-color', 'lime');
+        node.style.setProperty('opacity', 1);
+        node.setAttribute('disabled', 'true');
         PointCalibrate++;
-    }else if (CalibrationPoints[id]<5){
+    }else if (CalibrationPoints[id]>0){
         //Gradually increase the opacity of calibration points when click to give some indication to user.
-        var opacity = 0.2*CalibrationPoints[id]+0.2;
+        var opacity = 0.2*CalibrationPoints[id]-0.1;
         node.style.setProperty('opacity', opacity);
     }
 
@@ -110,16 +108,6 @@ function calPointClick(node) {
     }
 
     if (PointCalibrate >= 9){ // last point is calibrated
-        // grab every element in Calibration class and hide them except the middle point.
-        document.querySelectorAll('.Calibration').forEach((i) => {
-            i.style.setProperty('display', 'none');
-        });
-        document.getElementById('Pt5').style.removeProperty('display');
-
-        // clears the canvas
-        var canvas = document.getElementById("plotting_canvas");
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-
         // Calculate the accuracy
         calcAccuracy();
     }
@@ -133,10 +121,11 @@ function calPointClick(node) {
 //$(document).ready(function(){
 function docLoad() {
   ClearCanvas();
-  helpModalShow();
+  // helpModalShow();
+  ShowCalibrationPoint();
     
     // click event on the calibration buttons
-    document.querySelectorAll('.Calibration').forEach((i) => {
+    document.querySelectorAll('.calibration_point').forEach((i) => {
         i.addEventListener('click', () => {
             calPointClick(i);
         })
@@ -148,7 +137,7 @@ window.addEventListener('load', docLoad);
  * Show the Calibration Points
  */
 function ShowCalibrationPoint() {
-  document.querySelectorAll('.Calibration').forEach((i) => {
+  document.querySelectorAll('.calibration_point').forEach((i) => {
     i.style.removeProperty('display');
   });
   // initially hides the middle button
@@ -161,9 +150,8 @@ function ShowCalibrationPoint() {
 function ClearCalibration(){
   // Clear data from WebGazer
 
-  document.querySelectorAll('.Calibration').forEach((i) => {
-    i.style.setProperty('background-color', 'red');
-    i.style.setProperty('opacity', '0.2');
+  document.querySelectorAll('.calibration_point').forEach((i) => {
+    // i.style.setProperty('background-color', 'royalblue');
     i.removeAttribute('disabled');
   });
 

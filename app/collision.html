@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <head>
 	<meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="revisit-after" content="10 days" />
+  <meta name="revisit-after" content="10 days" />
 
-    <meta name="author" content="Jakov Jakovac" />
-    <meta name="copyright" content="Jakov Jakovac" />
+  <meta name="author" content="Jakov Jakovac" />
+  <meta name="copyright" content="Jakov Jakovac" />
 
-    <meta
-      name="description"
-      content="Simple gaze tracker using webgazer.js"
-    />
-    <meta
-      name="keywords"
-      content="gaze tracking, computer vision, regression, II, Iris Insighter"
-    />
+  <meta
+    name="description"
+    content="Simple gaze tracker using webgazer.js"
+  />
+  <meta
+    name="keywords"
+    content="gaze tracking, computer vision, regression, II, Iris Insighter"
+  />
 
-    <meta property="og:image" content="img/logos/Main Logo-02.png" />
-    <meta
-      property="og:description"
-      content="Simple gaze tracker using webgazer.js"
-    />
-    <meta property="og:title" content="Iris Insighter" />
+  <meta property="og:image" content="img/logos/Main Logo-02.png" />
+  <meta
+    property="og:description"
+    content="Simple gaze tracker using webgazer.js"
+  />
+  <meta property="og:title" content="Iris Insighter" />
 
 
-    <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
 
-    <title>Iris Insighter</title>
+  <title>Iris Insighter</title>
 
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+  
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/nav.css">
-	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/fonts.css">
+
+	<!-- <link rel="stylesheet" href="css/index.css"> -->
+
 </head>
 
 <body>
@@ -41,11 +46,33 @@
 		<ul class="nav_list">
 			<li><a href="index.html">Home</a></li>
 			<li><a href="calibration.html">Calibration</a></li>
-			<li><a class="current_site" href="collision.html">Demo game</a></li>
+			<li><a class="current_site" href="collision.html">Demo</a></li>
 			<!-- <li><a href="heatmap.html">Heatmap</a></li> -->
+
+      <!-- <button class="btn btn-primary" onclick="helpModalShow()">Help</button> -->
 		</ul>
 		</nav>
 	</header>
+
+  <!-- Modal -->
+  <div id="helpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="media/example/collision.png" width="100%" height="100%" alt="webgazer demo instructions"></img>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.8.1/localforage.js"></script>
