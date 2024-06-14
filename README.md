@@ -29,6 +29,7 @@ To run the application, you need Node.js, which can be downloaded from the link 
 - cd app
 - npm install .
 - npm run serve
+
 After running these commands, a new tab in your browser should be launched in which you can access the application.
 
 ### Welcome screen
