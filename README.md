@@ -44,7 +44,7 @@ Selecting the Calibration link in navigation the user is routed to the calibrati
 
 In the menu of calibration page there are 3 additional buttons in the navigation: Recalibrate, Test accuracyand Help. Recalibrate button deletes the existing calibration data if any exists and restarts the calibrationsetup by setting up the canvas calibration points for calibration. Test accuracy button sets up the canvasfor the accuracy test. Help button opens a modal with a simple UI description and instructions on how tocalibrate the model.
 
-The model can be calibrated simply by clicking the calibration points multiple times until they changecolor. After calibrating the first 8 points, a middle and final calibration will appear in the middle of screen.After the user calibrates all 9 points, the accuracy test will begin.
+The model can be calibrated simply by clicking the calibration points multiple times until they changecolor. After calibrating the first 8 points, a middle and final calibration will appear in the middle of screen. After the user calibrates all 9 points, the accuracy test will begin.
 
 ![Callibration](https://github.com/OffCrazyFreak/Iris-Insighter/assets/44674613/bcd3595e-aaea-42a9-b349-ddd81683dae2)
 *Calibration page with calibration points*
